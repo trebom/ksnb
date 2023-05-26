@@ -61,18 +61,11 @@ SYSTEM_APPS = [
     'django.contrib.staticfiles',
 ]
 CUSTOM_APPS = [
-    'houses.apps.HousesConfig',
-    'users.apps.UsersConfig',
-    'rooms.apps.RoomsConfig',
     'common.apps.CommonConfig',
-    'experiences.apps.ExperiencesConfig',
     'categories.apps.CategoriesConfig',
-    'reviews.apps.ReviewsConfig',
-    'wishlists.apps.WishlistsConfig',
-    'bookings.apps.BookingsConfig',
-    'medias.apps.MediasConfig',
-    'direct_messages.apps.DirectMessagesConfig',
-
+    'blogs.apps.BlogsConfig',
+    'users.apps.UsersConfig',
+    "debug_toolbar",
 ]
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
