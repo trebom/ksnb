@@ -2,6 +2,7 @@ databases:
   - name: ksnbdb
     databaseName: ksnbdb
     user: ksnbdb
+    plan: free
     region: ohio
 
 services:
