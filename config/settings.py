@@ -37,7 +37,7 @@ DEBUG = "RENDER" not in os.environ
 ALLOWED_HOSTS = [
     "127.0.0.1",
     "localhost",
-    "ksnbk.onrender.com",
+    "backend.ksnotes.xyz",
 ]
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -191,8 +191,8 @@ if DEBUG:
     CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:3000"]
     CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:3000"]
 else:
-    CORS_ALLOWED_ORIGINS = ["https://ksna.onrender.com"]
-    CSRF_TRUSTED_ORIGINS = ["https://ksna.onrender.com"]
+    CORS_ALLOWED_ORIGINS = ["https://ksnotes.xyz"]
+    CSRF_TRUSTED_ORIGINS = ["https://ksnotes.xyz"]
 
 CORS_ALLOW_CREDENTIALS = True
 
@@ -208,8 +208,8 @@ AUTHENTICATION_BACKENDS = [
 #GH_SECRET = env("GH_SECRET")
 
 if not DEBUG:
-    SESSION_COOKIE_DOMAIN = ".onrender.com"
-    CSRF_COOKIE_DOMAIN = ".onrender.com"
+    SESSION_COOKIE_DOMAIN = ".ksnotes.xyz"
+    CSRF_COOKIE_DOMAIN = ".ksnotes.com"
     sentry_sdk.init(
         dsn="https://120154a8848f4ed19933399668bc8e9a@o434859.ingest.sentry.io/4504414139645952",
     integrations=[
