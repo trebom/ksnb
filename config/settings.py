@@ -46,12 +46,6 @@ if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
 
 # Application definition
-THIRD_PARTY_APPS = [
-    "rest_framework",
-    "rest_framework.authtoken",
-    "corsheaders",
-    # "strawberry.django",
-]
 
 SYSTEM_APPS = [
     'django.contrib.admin',
@@ -61,12 +55,20 @@ SYSTEM_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 ]
+
+THIRD_PARTY_APPS = [
+    "rest_framework",
+    "rest_framework.authtoken",
+    "corsheaders",
+    "debug_toolbar",
+    # "strawberry.django",
+]
+
 CUSTOM_APPS = [
     'common.apps.CommonConfig',
     'categories.apps.CategoriesConfig',
     'blogs.apps.BlogsConfig',
     'users.apps.UsersConfig',
-    "debug_toolbar",
 ]
 
 INSTALLED_APPS = SYSTEM_APPS + THIRD_PARTY_APPS + CUSTOM_APPS 
@@ -74,8 +76,8 @@ INSTALLED_APPS = SYSTEM_APPS + THIRD_PARTY_APPS + CUSTOM_APPS
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
+    'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
