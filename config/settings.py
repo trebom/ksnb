@@ -199,6 +199,12 @@ CORS_ALLOW_CREDENTIALS = True
 CSRF_COOKIE_NAME = 'csrftoken'
 CSRF_COOKIE_SAMESITE = 'Strict'
 SESSION_COOKIE_SECURE = True
+
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+    # Other authentication backends...
+]
 #GH_SECRET = env("GH_SECRET")
 
 if not DEBUG:
