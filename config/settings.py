@@ -68,6 +68,9 @@ CUSTOM_APPS = [
     'users.apps.UsersConfig',
     "debug_toolbar",
 ]
+
+INSTALLED_APPS = SYSTEM_APPS + THIRD_PARTY_APPS + CUSTOM_APPS 
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -80,7 +83,6 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-INSTALLED_APPS = SYSTEM_APPS + THIRD_PARTY_APPS + CUSTOM_APPS 
 ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
@@ -189,8 +191,8 @@ if DEBUG:
     CORS_ALLOWED_ORIGINS = ["http://127.0.0.1:3000"]
     CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:3000"]
 else:
-    CORS_ALLOWED_ORIGINS = ["https://ksbnk.onrender.com"]
-    CSRF_TRUSTED_ORIGINS = ["https://ksbnk.onrender.com"]
+    CORS_ALLOWED_ORIGINS = ["https://ksnbk.onrender.com"]
+    CSRF_TRUSTED_ORIGINS = ["https://ksnbk.onrender.com"]
 
 CORS_ALLOW_CREDENTIALS = True
 
