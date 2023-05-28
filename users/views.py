@@ -8,6 +8,8 @@ from rest_framework.views import APIView
 from rest_framework import status
 from rest_framework.exceptions import ParseError, NotFound
 from rest_framework.permissions import IsAuthenticated
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 
 from users.models import User
 from . import serializers
@@ -88,7 +90,7 @@ class ChangePassword(APIView): # 로그인했을 때만 가능
         else:
             raise ParseError
 
-
+@method_decorator(csrf_exempt, name='dispatch')
 class LogIn(APIView):
     def post(self, request):
         username = request.data.get("username")
