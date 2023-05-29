@@ -7,7 +7,7 @@ databases:
 
 services:
   - type: web
-    name: ksnbk
+    name: ksnb
     env: python
     region: ohio
     buildCommand: "./build.sh"
