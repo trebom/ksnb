@@ -16,6 +16,7 @@ import environ
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 import dj_database_url
+import debug_toolbar
 
 env = environ.Env()
 
@@ -83,6 +84,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -109,7 +111,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
 if DEBUG:
-
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
@@ -211,7 +212,7 @@ AUTHENTICATION_BACKENDS = [
 
 if not DEBUG:
     SESSION_COOKIE_DOMAIN = ".ksnotes.xyz"
-    CSRF_COOKIE_DOMAIN = ".ksnotes.com"
+    CSRF_COOKIE_DOMAIN = ".ksnotes.xyz"
     sentry_sdk.init(
         dsn="https://120154a8848f4ed19933399668bc8e9a@o434859.ingest.sentry.io/4504414139645952",
     integrations=[
@@ -223,3 +224,7 @@ if not DEBUG:
         send_default_pii=True,
 
     )
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+]
