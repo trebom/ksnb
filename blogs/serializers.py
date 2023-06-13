@@ -6,6 +6,7 @@ from categories.serializers import TinyCategorySerializer
 class BlogSerializer(serializers.ModelSerializer):
     author = TinyUserSerializer(read_only=True)
     cate_no = TinyCategorySerializer(read_only=True)
+    
 
     # postCount = serializers.SerializerMethodField()
 
@@ -16,7 +17,7 @@ class BlogSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Blog
-        fields = ("title", "content","author","cate_no","updated_at","pk")
+        fields = ("title", "content","author","hits","recoms","cate_no","updated_at","pk")
 
 class CateBlogSerializer(serializers.ModelSerializer):
     author = TinyUserSerializer(read_only=True)
@@ -31,7 +32,7 @@ class CateBlogSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Blog
-        fields = ("title", "content","author","cate_no","updated_at","pk")
+        fields = ("title", "content","author","hits","recoms","cate_no","updated_at","pk")
 
         
 
@@ -40,7 +41,7 @@ class BlogDetailSerializer(serializers.ModelSerializer):
     cate_no = TinyCategorySerializer(read_only=True)
     class Meta:
         model = Blog
-        fields = ("title", "content","author","cate_no","updated_at","pk")
+        fields = ("title", "content","author","hits","recoms","cate_no","updated_at","pk")
 
 class BlogPostSerializer(serializers.ModelSerializer):
     author = TinyUserSerializer(read_only=True)
@@ -48,4 +49,4 @@ class BlogPostSerializer(serializers.ModelSerializer):
     class Meta:
         model = Blog
         # fields = "__all__"
-        fields = ("title", "content","author","cate_no")
+        fields = ("title", "content","author","hits","recoms","cate_no")

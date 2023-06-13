@@ -70,6 +70,8 @@ CUSTOM_APPS = [
     'categories.apps.CategoriesConfig',
     'blogs.apps.BlogsConfig',
     'users.apps.UsersConfig',
+    'comments.apps.CommentsConfig',
+    'npacks.apps.NpacksConfig',
 ]
 
 INSTALLED_APPS = SYSTEM_APPS + THIRD_PARTY_APPS + CUSTOM_APPS 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Blog
+from .models import Blog, Hit, Recom
 
 # Register your models here.
 
@@ -10,9 +10,25 @@ class BlogAdmin(admin.ModelAdmin):
     "content",
     "author",
     "cate_no",
+    "hits",
+    "recoms",
     "created_at",
     "updated_at",
     )
     
 
-    
+@admin.register(Hit)
+class HitAdmin(admin.ModelAdmin):
+    list_display = (
+        "category",
+        "author",
+        "userip",
+    )    
+
+@admin.register(Recom)
+class RecomAdmin(admin.ModelAdmin):
+    list_display = (
+        "category",
+        "author",
+        "userip",
+    )    

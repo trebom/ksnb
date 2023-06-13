@@ -23,9 +23,12 @@ urlpatterns = [
     path('blogs/', include("blogs.urls")),
     path('users/', include('users.urls')),
     path('categories/', include("categories.urls")),
+    path('comments/', include("comments.urls")),
     path('api/v1/blogs/', include("blogs.urls")),
     path('api/v1/users/', include("users.urls")),
+    path('api/v1/users/', include("users.urls")),
     path('api/v1/categories/', include("categories.urls")),
+    path('api/v1/comments/', include("comments.urls")),
     path("graphql", GraphQLView.as_view(schema=schema)),
     path("__debug__/", include("debug_toolbar.urls"))
 ]
