@@ -10,20 +10,22 @@ from .serializers import CategorySerializer, CategoryDetailSerializer, CategoryP
 #   cates.append(cate)
     # return 
 class Categories(APIView):
+    
+    def get_categories_recursive(self, category):
+        categories = [category]
+        subcategories = Category.objects.filter(upper_no=category.pk)
+        
+        for subcategory in subcategories:
+            categories.extend(self.get_categories_recursive(subcategory))
+        
+        return categories
+
     def get(self, request):
         cates = []
         roots = Category.objects.filter(upper_no=0)
-        for cate in roots:
-            cates.append(cate)
-            cate1 = Category.objects.filter(upper_no=cate.pk)
-            if cate1:
-                for cate in cate1:
-                    cates.append(cate)
-                    cate2 = Category.objects.filter(upper_no=cate.pk)
-                    if cate2:
-                        for cate in cate2:
-                            cates.append(cate)
-                            cate3 = Category.objects.filter(upper_no=cate.pk)
+        
+        for root in roots:
+            cates.extend(self.get_categories_recursive(root))
         
         serializer = CategorySerializer(cates, many=True)
         return Response(serializer.data)
